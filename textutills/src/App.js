@@ -4,7 +4,6 @@ import Navbar from "./components/Navbar";
 import { Textforms } from "./components/Textforms";
 import { About } from "./components/About";
 
-let name = "Dubey Ji";
 function App() {
   return (
     <div>

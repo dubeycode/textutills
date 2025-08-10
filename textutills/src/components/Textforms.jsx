@@ -1,13 +1,30 @@
 import React, { useState } from "react";
 
 export const Textforms = (props) => {
-  // Upper case 
+  // Upper case
   const handleupClick = () => {
     // console.log("uppercase was Clicked" +text);
 
     let newText = text.toUpperCase();
     setText(newText);
   };
+
+  //copy text
+  const handlecopy = () => {
+    console.log("I am copy");
+    var text = document.getElementById("mybox");
+    text.select();
+    text.setSelectionRange(0, 9999);
+    navigator.clipboard.writeText(text.value);
+  };
+
+    // handle extra space
+  const handleExtraSpace=()=>{
+    let newText =text.split(/[ ]+/);
+    setText(newText.join(" "))
+  }
+
+  const [text, setText] = useState("");
 
   //ek event handler hai jo tab trigger hota hai jab aap input box (ya textarea) me koi bhi text type karte hain ya uska content change hota hai.
   const handleOnChange = (event) => {
@@ -23,20 +40,18 @@ export const Textforms = (props) => {
     setText(newText);
   };
 
-   // Default text
+  // Default text
   const handledefault = () => {
     let store = localStorage.getItem("user");
     setText(store);
-  }
+  };
 
   //clear text
-  const handleClear=()=>{
-    localStorage.clear()
-    let newText ='';
+  const handleClear = () => {
+    localStorage.clear();
+    let newText = "";
     setText(newText);
-  }
-
-  const [text, setText] = useState("");
+  };
 
   return (
     <>
@@ -69,6 +84,12 @@ export const Textforms = (props) => {
         </button>
         <button className="btn btn-danger mx-3" onClick={handleClear}>
           Clear Text
+        </button>
+        <button className="btn btn-primary mx-3" onClick={handlecopy}>
+          Copy Text
+        </button>
+        <button className="btn btn-primary mx-3" onClick={handleExtraSpace}>
+          Remove Extra Space
         </button>
       </div>
       <div className="container my-3">
