@@ -13,6 +13,7 @@ export const Textforms = (props) => {
   const handleOnChange = (event) => {
     // console.log("On Change")
     setText(event.target.value);
+    localStorage.setItem("user", event.target.value);
   };
 
   // Lower case
@@ -22,14 +23,20 @@ export const Textforms = (props) => {
     setText(newText);
   };
 
-  // Default text
+   // Default text
   const handledefault = () => {
     let store = localStorage.getItem("user");
     setText(store);
   }
 
-  const [text, setText] = useState("");
+  //clear text
+  const handleClear=()=>{
+    localStorage.clear()
+    let newText ='';
+    setText(newText);
+  }
 
+  const [text, setText] = useState("");
 
   return (
     <>
@@ -59,6 +66,9 @@ export const Textforms = (props) => {
         </button>
         <button className="btn btn-primary mx-3" onClick={handledefault}>
           Convert to Default
+        </button>
+        <button className="btn btn-danger mx-3" onClick={handleClear}>
+          Clear Text
         </button>
       </div>
       <div className="container my-3">
