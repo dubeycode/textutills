@@ -9,7 +9,7 @@ export const Textforms = (props) => {
     setText(newText);
   };
 
-    //ek event handler hai jo tab trigger hota hai jab aap input box (ya textarea) me koi bhi text type karte hain ya uska content change hota hai.
+  //ek event handler hai jo tab trigger hota hai jab aap input box (ya textarea) me koi bhi text type karte hain ya uska content change hota hai.
   const handleOnChange = (event) => {
     // console.log("On Change")
     setText(event.target.value);
@@ -22,12 +22,15 @@ export const Textforms = (props) => {
     setText(newText);
   };
 
-
-  
+  // Default text
+  const handledefault = () => {
+    let store = localStorage.getItem("user");
+    setText(store);
+  }
 
   const [text, setText] = useState("");
 
-  
+
   return (
     <>
       <div>
@@ -37,7 +40,11 @@ export const Textforms = (props) => {
             className="form-control"
             value={text}
             onChange={handleOnChange}
-            // handeldefault={handeldefault}
+            onClick={() => {
+              if (!localStorage.getItem("user")) {
+                localStorage.setItem("user", text);
+              }
+            }}
             id="mybox"
             rows="8"
             placeholder="Enter text here press button and see the magic"
@@ -50,9 +57,9 @@ export const Textforms = (props) => {
         <button className="btn btn-primary mx-3" onClick={handleLowerClick}>
           Convert to LowerCase
         </button>
-        {/* <button className="btn btn-primary mx-3" onClick={handledefault}>
+        <button className="btn btn-primary mx-3" onClick={handledefault}>
           Convert to Default
-        </button> */}
+        </button>
       </div>
       <div className="container my-3">
         <h1>Your Text Summary</h1>
