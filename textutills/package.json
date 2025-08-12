@@ -1,10 +1,11 @@
 {
-  "homepage": "https://dubeycode.github.io/react_foundation",
+  "homepage": "https://dubeycode.github.io/react_foundation/tree/main/textutills",
   "name": "textutills",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/user-event": "^13.5.0",
+    "gh-pages": "^6.3.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-router-dom": "^7.8.0",
@@ -12,12 +13,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
