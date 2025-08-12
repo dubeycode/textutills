@@ -1,8 +1,8 @@
 {
+  "homepage": "https://dubeycode.github.io/react_foundation",
   "name": "textutills",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://dubeycode.github.io/react_foundation",
   "dependencies": {
     "@testing-library/user-event": "^13.5.0",
     "react": "^19.1.1",

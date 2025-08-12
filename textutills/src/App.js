@@ -1,17 +1,15 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Navbar from "./components/Navbar";
-import { About } from "./components/About";
+// import { About } from "./components/About";
 import { Textforms } from "./components/Textforms";
 import { Alert } from "./components/Alert";
 import React, { useState } from 'react';
 
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link
-} from "react-router-dom"
+// import {
+//   BrowserRouter as Router,
+//   Routes,
+//   Route
+// } from "react-router-dom"
 
 
 function App() {
@@ -52,7 +50,7 @@ function App() {
   }
   return (
     <>
-      <Router>
+      {/* <Router>
         <Navbar title="TextUtils" mode={mode} about="About" toggleMode={toggleMode} />
         <Alert alert={alert} />
         <div className="container my-3">
@@ -62,6 +60,12 @@ function App() {
           </Routes>
         </div>
       </Router>
+    </> */}
+        <Navbar title="TextUtils" mode={mode} about="About" toggleMode={toggleMode} />
+        <Alert alert={alert} />
+        <div className="container my-3">
+            <Textforms showAlert={showAlert} heading="Enter the text to analyze below" mode={mode} />
+        </div>
     </>
   );
 }
