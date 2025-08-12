@@ -4,9 +4,9 @@ export const Textforms = (props) => {
   // Upper case
   const handleUpClick = () => {
     // console.log("uppercase was Clicked" +text);
-
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert("Converted to uppercase","success")
   };
 
   //copy text
@@ -16,12 +16,14 @@ export const Textforms = (props) => {
     text.select();
     text.setSelectionRange(0, 9999);
     navigator.clipboard.writeText(text.value);
+    props.showAlert("Your text has been copied","secondary")
   };
 
   // handle extra space
   const handleExtraSpaces = () => {
     let newText = text.split(/[ ]+/);
     setText(newText.join(" "))
+    props.showAlert("Extra Space has been removed","success")
   }
 
   const [text, setText] = useState("");
@@ -39,12 +41,14 @@ export const Textforms = (props) => {
     // console.log("uppercase was Clicked" +text);
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert("Converted to Lowercase","success")
   };
 
   // Default text
   const handledefault = () => {
     let store = localStorage.getItem("user");
     setText(store);
+    props.showAlert("This is your default text which you enter very first ","info")
   };
 
   //clear text
@@ -52,6 +56,7 @@ export const Textforms = (props) => {
     localStorage.clear();
     let newText = "";
     setText(newText);
+    props.showAlert("All text has been removed","danger")
   };
 
 
