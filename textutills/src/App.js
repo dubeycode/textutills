@@ -2,7 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import { Textforms } from "./components/Textforms";
-import { Alert } from "./components/Alert";
+import  {Alert}  from "./components/Alert";
 
 import React, { useState } from 'react';
 
@@ -33,7 +33,7 @@ function App() {
   return (
     <>
       <Navbar title="TextUtils" mode={mode} about="About TextUtils" toggleMode={toggleMode} />
-      <Alert alert={alert}  / >
+      <Alert alert={alert} />
       <div className="container my-3">
         <Textforms heading="Enter the text to analyze below" mode={mode}  />
       </div>
